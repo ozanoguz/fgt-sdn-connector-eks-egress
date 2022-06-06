@@ -122,32 +122,31 @@ Resolve master URL above using a terminal/cmd prompt to find out Master API IP a
 
 IMAGE_NSLOOKUP
 
-Create the service account, in EKS cluster 
-
+Step1: Create required serviceaccount in EKSdemocluster
 ```
-# create required serviceaccount in EKSdemocluster
 kubectl create serviceaccount fortigateconnector
-!
-# create and apply clusterrole for SDN connector
+```
+
+Step2: Create and apply clusterrole for SDN connector
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-# "namespace" omitted since ClusterRoles are not namespaced
  name: fgt-connector
-
 rules:
 - apiGroups: [""]
-
   resources: ["pods", "namespaces", "nodes" , "services"]
   verbs: ["get", "watch", "list"]
   EOF
 
-!
-# attach clusterrole to the service account
+```
+Step3: Attach clusterrole to the service account
+```
 kubectl create clusterrolebinding fgt-connector --clusterrole=fgt-connector --serviceaccount=default:fortigateconnector
-!
-# obtain required token that will be used during creating SDN connector
+```
+Step4: Obtain required token that will be used during creating SDN connector
+```
 kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='fortigateconnector')].data.token}"| base64 --decode
 ```
 
