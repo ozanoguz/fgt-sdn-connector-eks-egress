@@ -16,12 +16,14 @@ IMAGE_ACCESS_CLOUDSHELL
 When you access Cloudshell CLI screen, clone following GitHub repo to your shell:
 
 ```
+cd $user
 git clone https://github.com/ozanoguz/aws_tools.git
 ```
 
 Access related folder and allow bash scripts that can be executed.
 
 ```
+cd $user
 cd aws_tools
 cd EKS_demo
 chmod +x deploy.sh
