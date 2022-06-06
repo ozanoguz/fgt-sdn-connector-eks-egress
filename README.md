@@ -138,7 +138,7 @@ rules:
 - apiGroups: [""]
   resources: ["pods", "namespaces", "nodes" , "services"]
   verbs: ["get", "watch", "list"]
-  EOF
+EOF
 
 ```
 Step3: Attach clusterrole to the service account
