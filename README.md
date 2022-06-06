@@ -145,6 +145,25 @@ kubectl create clusterrolebinding fgt-connector --clusterrole=fgt-connector --se
 kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='fortigateconnector')].data.token}"| base64 --decode
 ```
 
+To create SDN connector on FortiGate, navigate the path on management GUI "_Security Fabric > External Connectors > Create New > Kubernetes_"
+
+IMAGE_SDN_CONNECTOR_CREATE_NEW
+
+Fill following fields accordingly:
+Name: Any name can be given
+Verify Certificate: Should be DISABLED
+IP: Resolved IP of Master API URL using terminal/cmd_prompt
+Secret token: Obtained on Step4 above
+
+IMAGE_CREATE_SDN_CONNECTOR
+
+Click OK
+
+You can view objects imported from EKSdemocluster
+
+IMAGE_OBJECTS
+
+
 ## Step5: South/North Egress Traffic Inspection by FortiGate
 
 sdgsgsgds
