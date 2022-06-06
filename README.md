@@ -121,14 +121,11 @@ IMAGE_MASTER_API_URL
 Resolve master URL above using a terminal/cmd prompt to find out Master API IP address that we will use for FortiGate Kubernetes SDN Connector:
 
 IMAGE_NSLOOKUP
-
-Step1: Create required serviceaccount in EKSdemocluster
 ```
+#Step1: Create required serviceaccount in EKSdemocluster
 kubectl create serviceaccount fortigateconnector
-```
 
-Step2: Create and apply clusterrole for SDN connector
-```
+#Step2: Create and apply clusterrole for SDN connector
 cat <<EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -140,13 +137,11 @@ rules:
   verbs: ["get", "watch", "list"]
 EOF
 
-```
-Step3: Attach clusterrole to the service account
-```
+#Step3: Attach clusterrole to the service account
 kubectl create clusterrolebinding fgt-connector --clusterrole=fgt-connector --serviceaccount=default:fortigateconnector
-```
-Step4: Obtain required token that will be used during creating SDN connector
-```
+
+#Step4: Obtain required token that will be used during creating SDN connector
+
 kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='fortigateconnector')].data.token}"| base64 --decode
 ```
 
