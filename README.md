@@ -166,5 +166,22 @@ IMAGE_OBJECTS
 
 ## Step5: South/North Egress Traffic Inspection by FortiGate
 
+Let's create a dynamic address object using SDN connector capability. To do that, navigate the path using FortiGate management GUI "". 
+
+Next, create an egress firewall policy using following parameters. This will ensure outgoing traffic is inspected and protected by FortiGate.
+
+For creating egress traffic, We need to access bash of one of the deployed container pods using following command:
+
+***
+kubectl exec -it name_of_container_pod -- /bin/bash
+
+Preparing pod to use network tools
+apt-get update && apt-get install curl
+
+While we have bash access, let's test couple of web-sites to test egress communication is traveling through FortiGate installation:
+
+***
+curl www.google.com
+
 sdgsgsgds
 
