@@ -41,20 +41,32 @@ IMAGE_EKS_READY
 
 ## Step2: Deploy FortiGate PAYG Instance
 
+First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_"
+
 We will use AWS Marketplace to deploy single FortiGate-VM instance into cloud account. While we are logged in AWS console, click here to start FortiGate deployment : https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa
 
 IMAGE
 
-Click "Continue to Subscribe" button on top right to continue:
+Click "_Continue to Subscribe_" button on top right to continue:
 
 IMAGE
 
-Click "Continue to Configuration" button on top right to continue:
+Click "_Continue to Configuration_" button on top right to continue:
 
 IMAGE
 
-Choose "7.0.5" from "Software version" and "EU (Ireland)" from "Region" dropdown menu as shown below, then click "Continue to Launch" button on top 
-right.
+Choose "_7.0.5_" from "_Software version_" and "_EU (Ireland)_" from "_Region_" dropdown menu as shown below, then click "_Continue to Launch_" button on top right.
+
+IMAGE
+
+Select following from "_Configuration Details_" screen as below. Note that VPC-ID/subnet-ID will be the ones created by EKS script
+
+To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID value of "EKSdemo_"
+To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet_"
+
+IMAGE
+
+After choosing "_Create New Based on Seller Settings_", give a name to security group:
 
 IMAGE
 
