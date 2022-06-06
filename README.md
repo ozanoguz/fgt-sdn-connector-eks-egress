@@ -43,7 +43,7 @@ IMAGE_EKS_READY
 
 First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_"
 
-[Quick Access](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#KeyPairs)
+[Quick Access to Key Pairs](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#KeyPairs)
 
 We will use AWS Marketplace to deploy single FortiGate-VM instance into cloud account. While we are logged in AWS console, click following link to start FortiGate deployment
 
@@ -74,11 +74,23 @@ After choosing "_Create New Based on Seller Settings_", give a name to security 
 
 IMAGE
 
+Select the Key Pair we created above:
+
+IMAGE
+
+Click "Lunch" on bottom right:
 
 
 ## Step3: Prepare EKS Cluster for FortiGate Integration
 
-sdgsgsdgds
+First, we will prepare AWS Cloudshell to access EKS cluster by installing kubectl tool.
+
+```
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+aws eks update-kubeconfig --name EKSdemocluster
+```
 
 ## Step4: Connect FortiGate to EKS using SDN Connector
 
