@@ -10,3 +10,21 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 ## Step1: Create AWS EKS Managed Kubernetes Cluster
 
 sdgsgsdgds
+
+
+## Step2: Deploy FortiGate PAYG Instance
+
+sdgsgsdgds
+
+## Step3: Prepare EKS Cluster for FortiGate Integration
+
+sdgsgsdgds
+
+## Step4: Connect FortiGate to EKS using SDN Connector
+
+sdgsgsdgds
+
+## Step5: South/North Egress Traffic Inspection by FortiGate
+
+sdgsgsgds
+
