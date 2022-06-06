@@ -35,12 +35,30 @@ Run the script that deploys EKS cluster with required resources (VPC, subnets, I
 \.deploy.sh
 ```
 
+Deployment will take around 15 mins. You should see following when it successfully finishes:
 
-
+IMAGE_EKS_READY
 
 ## Step2: Deploy FortiGate PAYG Instance
 
-sdgsgsdgds
+We will use AWS Marketplace to deploy single FortiGate-VM instance into cloud account. While we are logged in AWS console, click here to start FortiGate deployment : https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa
+
+IMAGE
+
+Click "Continue to Subscribe" button on top right to continue:
+
+IMAGE
+
+Click "Continue to Configuration" button on top right to continue:
+
+IMAGE
+
+Choose "7.0.5" from "Software version" and "EU (Ireland)" from "Region" dropdown menu as shown below, then click "Continue to Launch" button on top 
+right.
+
+IMAGE
+
+
 
 ## Step3: Prepare EKS Cluster for FortiGate Integration
 
