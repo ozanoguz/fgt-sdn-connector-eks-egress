@@ -22,7 +22,7 @@ git clone https://github.com/ozanoguz/aws_tools.git
 Access related folder and allow bash scripts that can be executed.
 
 ```
-cd aws-tools
+cd aws_tools
 cd EKS_demo
 chmod +x deploy.sh
 chmod +x cleanup.sh
