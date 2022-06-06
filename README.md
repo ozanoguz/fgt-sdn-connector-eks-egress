@@ -80,22 +80,75 @@ IMAGE
 
 Click "Lunch" on bottom right:
 
+IMAGE_LUNCH_FGT_DEPLOYMENT
+
+When FortiGate deployment is ready, you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password.
+
+IMAGE_EC2_FGT_READY
+ 
+IMAGE_FGT_LOGIN_GUI
 
 ## Step3: Prepare EKS Cluster for FortiGate Integration
 
 First, we will prepare AWS Cloudshell to access EKS cluster by installing kubectl tool.
 
 ```
+!
+# locate to home folder
+cd $user
+# download kubectl to cloudshell
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
+!
+# Apply execute permission
 chmod +x ./kubectl
+!
+# Move the kubectl to different folder and add it to the path
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+!
+# Update kubeconfig file to access EKS cluster
 aws eks update-kubeconfig --name EKSdemocluster
-
 ```
 
 ## Step4: Connect FortiGate to EKS using SDN Connector
 
-sdgsgsdgds
+First, we will find out Kubernetes Master API URL created by EKS using cloudshell:
+
+```
+kubectl cluster-info
+```
+IMAGE_MASTER_API_URL
+
+Resolve master URL above using a terminal/cmd prompt to find out Master API IP address that we will use for FortiGate Kubernetes SDN Connector:
+
+IMAGE_NSLOOKUP
+
+Create the service account, in EKS cluster 
+
+```
+# create required serviceaccount in EKSdemocluster
+kubectl create serviceaccount fortigateconnector
+!
+# create and apply clusterrole for SDN connector
+cat <<EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+# "namespace" omitted since ClusterRoles are not namespaced
+ name: fgt-connector
+
+rules:
+- apiGroups: [""]
+
+  resources: ["pods", "namespaces", "nodes" , "services"]
+  verbs: ["get", "watch", "list"]
+  EOF
+!
+# attach clusterrole to the service account
+kubectl create clusterrolebinding fgt-connector --clusterrole=fgt-connector --serviceaccount=default:fortigateconnector
+!
+# obtain required token that will be used during creating SDN connector
+kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='fortigateconnector')].data.token}"| base64 --decode
+```
 
 ## Step5: South/North Egress Traffic Inspection by FortiGate
 
