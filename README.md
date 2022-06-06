@@ -27,6 +27,11 @@ cd EKS_demo
 chmod +x deploy.sh
 chmod +x cleanup.sh
 ```
+Run the script that deploys EKS cluster with required resources (VPC, subnets, IGW, SG etc.)
+
+```
+\.deploy.sh
+```
 
 
 
