@@ -9,7 +9,26 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 
 ## Step1: Create AWS EKS Managed Kubernetes Cluster
 
-sdgsgsdgds
+To create EKS cluster, we will use a bash script on AWS cloudshell. To access AWS cloudshell, after accessing AWS console GUI click the button on top right as shown below:
+
+IMAGE_ACCESS_CLOUDSHELL
+
+When you access Cloudshell CLI screen, clone following GitHub repo to your shell:
+
+```
+git clone https://github.com/ozanoguz/aws_tools.git
+```
+
+Access related folder and allow bash scripts that can be executed.
+
+```
+cd aws-tools
+cd EKS_demo
+chmod +x deploy.sh
+chmod +x cleanup.sh
+```
+
+
 
 
 ## Step2: Deploy FortiGate PAYG Instance
