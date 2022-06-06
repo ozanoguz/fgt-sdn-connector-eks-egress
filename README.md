@@ -142,6 +142,7 @@ rules:
   resources: ["pods", "namespaces", "nodes" , "services"]
   verbs: ["get", "watch", "list"]
   EOF
+
 !
 # attach clusterrole to the service account
 kubectl create clusterrolebinding fgt-connector --clusterrole=fgt-connector --serviceaccount=default:fortigateconnector
