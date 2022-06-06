@@ -1,4 +1,4 @@
-# FortiGate SDN Connector & AWS EKS N/S Lab
+# FortiGate SDN Connector & AWS EKS N/S Hands-on-Lab
 This document describes how to protect managed Kubernetes cluster on AWS platform using FortiGate-VM deployment for North/South traffic. This hands-on-lab consists on following steps:
 
 -	Creating AWS EKS cluster using script
