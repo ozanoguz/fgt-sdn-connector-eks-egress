@@ -3,7 +3,7 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 
 -	[Section 1: Creating AWS EKS cluster using bash script](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-1-create-aws-eks-managed-kubernetes-cluster)
 - [Section 2: Deploying FortiGate single-VM instance using AWS Marketplace](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-2-deploy-fortigate-payg-instance)
--	[Section 3: Preparing EKS Cluster for FortiGate integration](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-3-prepare-eks-cluster-for-fortigate-integration)
+-	[Section 3: Preparing EKS Cluster & Deploy Simple Application](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-3-prepare-eks-cluster-for-fortigate-integration)
 -	[Section 4: Connecting FortiGate to EKS](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-4-connect-fortigate-to-eks-using-sdn-connector)
 -	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-by-fortigate)
 
@@ -87,15 +87,15 @@ To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID val
 
 To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet_"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SUBNET_ID.png width="400"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SUBNET_ID.png width="300"/>
 
 After choosing "_Create New Based on Seller Settings_", give a name to security group:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SG.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SG.png width="600"/>
 
 Select the Key Pair we created above:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SELECT_KEYPAIR.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SELECT_KEYPAIR.png width="600"/>
 
 Click "Lunch" on bottom right
 
@@ -107,9 +107,9 @@ When FortiGate EC2 status is "_running_", you can login FortiGate GUI with assig
  
 We will use instance-id to login FortiGate GUI once. After first successfull login, FortiGate will ask to change admin password.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png width="400"/>
 
-## Section 3: Preparing EKS Cluster for FortiGate Integration
+## Section 3: Preparing EKS Cluster & Deploy Simple Application
 
 Let's prepare AWS Cloudshell to access EKS cluster by installing kubectl tool and required authentication.
 
@@ -128,6 +128,19 @@ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/
 !
 # Update kubeconfig file to access EKS cluster
 aws eks update-kubeconfig --name EKSdemocluster
+```
+We can check node and pod status of EKS cluster using following commands.
+
+```
+kubectl get nodes -o wide
+kubectl get pods -A -o wide
+```
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NODEPODSTATUS.png>
+
+Let's deploy a simple NGINX application that consists of 2 pods using following manifest:
+
+```
+sdgsgs
 ```
 
 ## Section 4: Connecting FortiGate to EKS
