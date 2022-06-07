@@ -169,6 +169,16 @@ kubectl get pods -n default -o wide
 ```
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SIMPLE_APP.png>
 
+Since we are using AWS CNI, egress traffic directed to Internet will be NAT'ted by CNI. That way, for outgoing traffic initiated from pods, we will see only node IP of deployed pods in FortiGate traffic logs. We can disable NAT feature of AWS CNI using following command in cloudshell
+
+```
+kubectl set env daemonset -n kube-system aws-node AWS_VPC_K8S_CNI_EXTERNALSNAT=true
+```
+
+You should see following outputon cloudshell:
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_DISABLE_SNAT.png>
+
 ## Section 4: Connecting FortiGate to EKS
 
 First, we will find out Kubernetes Master API URL created by EKS using cloudshell:
