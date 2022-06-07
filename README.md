@@ -1,11 +1,11 @@
 # FortiGate SDN Connector & AWS EKS N/S Hands-on-Lab
 This document describes how to protect managed Kubernetes cluster on AWS platform using FortiGate-VM deployment for North/South traffic. This hands-on-lab consists on following steps:
 
--	Creating AWS EKS cluster using script
-- [Section 2](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-2-deploy-fortigate-payg-instance)Deploying FortiGate single-VM instance using AWS Marketplace
--	Preparing EKS Cluster for FortiGate integration
--	Connecting FortiGate to EKS
--	South/North egress traffic inspection through FortiGate
+-	[Section 1: Creating AWS EKS cluster using script](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-1-create-aws-eks-managed-kubernetes-cluster)
+- [Section 2: Deploying FortiGate single-VM instance using AWS Marketplace](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-2-deploy-fortigate-payg-instance)
+-	[Section 3: Preparing EKS Cluster for FortiGate integration](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-3-prepare-eks-cluster-for-fortigate-integration)
+-	[Section 4: Connecting FortiGate to EKS](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-4-connect-fortigate-to-eks-using-sdn-connector)
+-	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-by-fortigate)
 
 ## Section 1: Create AWS EKS Managed Kubernetes Cluster
 
