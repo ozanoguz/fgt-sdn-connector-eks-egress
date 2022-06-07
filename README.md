@@ -200,7 +200,7 @@ You should see following outputon cloudshell:
 
 When we create subnets within VPC, all use main routing table. For re-directing outgoing traffic to FortiGate interface, create new route-table using AWS console ("_Services > VPC > Route Tables > Create route table_")
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ROUTE_TABLE.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ROUTE_TABLE.png width="600"/>
 
 Add a default route by clicking "Edit routes" with a target pointing FortiGate-VM NIC-ID. FortiGate-VM's NIC ID can be found under networking settings of FortiGate EC2.
 
