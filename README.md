@@ -65,30 +65,30 @@ Click "_Continue to Configuration_" button on top right to continue:
 
 Choose "_7.0.5_" from "_Software version_" and "_EU (Ireland)_" from "_Region_" dropdown menu as shown below, then click "_Continue to Launch_" button on top right.
 
-IMAGE
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SELECT_VERSION.png>
 
 Select following from "_Configuration Details_" screen as below. Note that VPC-ID/subnet-ID will be the ones created by EKS script
 
-To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID value of "EKSdemo_"
-To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet_"
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_OPTIONS.png>
 
-IMAGE
+To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID value of "EKSdemo_"
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_VPC_ID.png>
+
+To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet_"
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SUBNET_ID.png>
 
 After choosing "_Create New Based on Seller Settings_", give a name to security group:
-
-IMAGE
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SG.png>
 
 Select the Key Pair we created above:
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SELECT_KEYPAIR.png>
 
-IMAGE
+Click "Lunch" on bottom right
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_LUNCH_FGT.png>
 
-Click "Lunch" on bottom right:
+When FortiGate deployment is ready, you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password. FortiGate public IP can be found using path "_Services > EC2 > Instances > select FortiGate-VM_"
 
-IMAGE_LUNCH_FGT_DEPLOYMENT
-
-When FortiGate deployment is ready, you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password.
-
-IMAGE_EC2_FGT_READY
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_PUBLIC_IP.png>
  
 IMAGE_FGT_LOGIN_GUI
 
