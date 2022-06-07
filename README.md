@@ -53,7 +53,7 @@ We will use AWS Marketplace to deploy single FortiGate-VM instance into cloud ac
 
 [Deploy FortiGate PAYG Instance](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa)
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SEARCH_MARKETPLACE.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SEARCH_MARKETPLACE.png width="300"/>
 
 Click "_Continue to Subscribe_" button on top right to continue:
 
