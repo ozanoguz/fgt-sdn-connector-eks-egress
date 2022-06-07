@@ -6,6 +6,7 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 -	[Section 3: Preparing EKS Cluster & Deploy Simple Application](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-3-prepare-eks-cluster-for-fortigate-integration)
 -	[Section 4: Connecting FortiGate to EKS](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-4-connect-fortigate-to-eks-using-sdn-connector)
 -	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-by-fortigate)
+-	Section 6: (Optional) Automation by scaling-up NGINX deployment
 
 ## Section 1: Creating AWS EKS Cluster Using Bash Script
 
@@ -108,6 +109,12 @@ When FortiGate EC2 status is "_running_", you can login FortiGate GUI with assig
 We will use instance-id to login FortiGate GUI once. After first successfull login, FortiGate will ask to change admin password.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png width="400"/>
+
+Before proceeding below, do not forget to disable source & destination check on FortiGate-VM network interface. Navigation path on AWS console is "_Services > EC2 > select FortiGate-EC2 > Networking > Network Interfaces > select NIC > Actions > Change source/destination check_"
+
+Check box should NOT be selected as shown below:
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SRCDST_DISABLE.png>
 
 ## Section 3: Preparing EKS Cluster & Deploy Simple Application
 
@@ -283,3 +290,16 @@ Let's check FortiGate traffic log using navigation path "_Log and Report > Forwa
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TRAFFIC_LOG.png width="800"/>
 
 As it is shown above, FortiGate is able to log by NGINX pod IP and egress traffic is inspected using specific firewall policy.
+
+## Section 6: (Optional) Automation by scaling-up NGINX deployment
+
+By nature of Kubernetes world, applications can horizontally scale up/down by many reasons. Let's scale up our NGINX app using following command:
+
+```
+kubectl scale --replicas=3 deployment nginx-deployment
+```
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SCALED_UP.png>
+
+As the output showing above, our NGIX deployment is scaled up to 3 pods running. Thanks to FortiGate SDN Connector, this chance will be automatically reflected in dynamic object and firewall policy. To see this change navigate through FortiGate management GUI "_Policy & Objects > Firewall Policy_" and hover your mouse on dynamic object we created before.
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png>
