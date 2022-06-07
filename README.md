@@ -196,6 +196,20 @@ You should see following outputon cloudshell:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_DISABLE_SNAT.png>
 
+### Step 3.4: Manipulate Routing within VPC
+
+When we create subnets within VPC, all use main routing table. For re-directing outgoing traffic to FortiGate interface, create new route-table using AWS console ("_Services > VPC > Route Tables > Create route table_")
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ROUTE_TABLE.png>
+
+Add a default route by clicking "Edit routes" with a target pointing FortiGate-VM NIC-ID. FortiGate-VM's NIC ID can be found under networking settings of FortiGate EC2.
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ADD_ROUTE.png>
+
+Then, associate this route table to EKS subnets by choosing "_Subnet Associations > Edit Subnet Associations_":
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_RT_ASSOCIATE.png> 
+
 ## Section 4: Connecting FortiGate to EKS
 
 ### Step 1: Obtain Master API IP address
