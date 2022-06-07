@@ -259,20 +259,28 @@ Next, create an egress firewall policy using following parameters. This will ens
 
 Make sure you enabled logging for all sessions:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FWPOLICY_LOGGING.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FWPOLICY_LOGGING.png width="400"/>
 
-For creating egress traffic, We need to access bash of one of the deployed container pods using following command:
+For creating egress traffic, We need to access bash of one of the deployed container pods using following command. You can obtain the name of the NGINX pod using "kubectl get pods -n default -o wide" commmand. Once we are inside the pod, curl should be install to test egress traffic.
 
-***
-kubectl exec -it name_of_container_pod -- /bin/bash
+```
+kubectl exec -it nginx-deployment-66b6c48dd5-56rjj -- /bin/bash
 
-Preparing pod to use network tools
+#install network tools and curl into nginx pod. Type "Y" to continue installation.
 apt-get update && apt-get install curl
+```
 
-While we have bash access, let's test couple of web-sites to test egress communication is traveling through FortiGate installation:
+While we have bash access, let's test couple of web-sites to test egress communication is traveling through FortiGate instance:
 
-***
+```
 curl www.google.com
+curl www.fortinet.com
+```
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CURL_FROM_POD.png>
 
-sdgsgsgds
+Let's check FortiGate traffic log using navigation path "_Log and Report > Forward Traffic_"
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TRAFFIC_LOG.png width="400"/>
+
+As it is shown above, FortiGate is able to log by NGINX pod IP and egress traffic is inspected using specific firewall policy.
 
