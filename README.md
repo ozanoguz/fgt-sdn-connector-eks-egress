@@ -270,6 +270,10 @@ Make sure you enabled logging for all sessions:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FWPOLICY_LOGGING.png width="400"/>
 
+Before proceeding, add another firewall policy to allow worker nodes' Internet connectivity as shown below:
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_ALLOW_ALL.png width="400"/>
+
 For creating egress traffic, We need to access bash of one of the deployed container pods using following command. You can obtain the name of the NGINX pod using "kubectl get pods -n default -o wide" commmand. Once we are inside the pod, curl should be install to test egress traffic.
 
 ```
