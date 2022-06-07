@@ -302,4 +302,8 @@ kubectl scale --replicas=3 deployment nginx-deployment
 
 As the output showing above, our NGIX deployment is scaled up to 3 pods running. Thanks to FortiGate SDN Connector, this chance will be automatically reflected in dynamic object and firewall policy. To see this change navigate through FortiGate management GUI "_Policy & Objects > Firewall Policy_" and hover your mouse on dynamic object we created before.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png width="600"/>
+
+Click "View Matched Addresses" 
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_THREE_PODS.png width="600"/>
