@@ -97,7 +97,7 @@ When FortiGate deployment is ready, you can login FortiGate GUI with assigned pu
  
 We will use instance-id to login FortiGate GUI once. After first successfull login, FortiGate will ask to change admin password.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png width="400"/>
 
 ## Section 3: Prepare EKS Cluster for FortiGate Integration
 
