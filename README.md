@@ -181,21 +181,26 @@ You should see following outputon cloudshell:
 
 ## Section 4: Connecting FortiGate to EKS
 
+### Step1: Obtain Master API IP address
+
 First, we will find out Kubernetes Master API URL created by EKS using cloudshell:
 
 ```
 kubectl cluster-info
 ```
-IMAGE_MASTER_API_URL
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_KUBECTL_CLUSTERINFO.png>
 
 Resolve master URL above using a terminal/cmd prompt to find out Master API IP address that we will use for FortiGate Kubernetes SDN Connector:
 
-IMAGE_NSLOOKUP
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NSLOOKUP.png>
+
+### Step2: Create service account in EKS Cluster
+
 ```
-#Step1: Create required serviceaccount in EKSdemocluster
+#create service account
 kubectl create serviceaccount fortigateconnector
 
-#Step2: Create and apply clusterrole for SDN connector
+#create and apply clusterrole for SDN connector
 cat <<EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -207,32 +212,36 @@ rules:
   verbs: ["get", "watch", "list"]
 EOF
 
-#Step3: Attach clusterrole to the service account
+#attach clusterrole to the service account
 kubectl create clusterrolebinding fgt-connector --clusterrole=fgt-connector --serviceaccount=default:fortigateconnector
 
-#Step4: Obtain required token that will be used during creating SDN connector
+#obtain required token that will be used during creating SDN connector
 
 kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='fortigateconnector')].data.token}"| base64 --decode
 ```
+You can copy token to a text editor, because we will use that token to enable FortiGate SDN Connector.
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TOKEN.png>
 
 To create SDN connector on FortiGate, navigate the path on management GUI "_Security Fabric > External Connectors > Create New > Kubernetes_"
 
-IMAGE_SDN_CONNECTOR_CREATE_NEW
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_CONNECTOR.png>
 
 Fill following fields accordingly:
+
 Name: Any name can be given
 Verify Certificate: Should be DISABLED
 IP: Resolved IP of Master API URL using terminal/cmd_prompt
-Secret token: Obtained on Step4 above
+Port: 443
+Secret token: Obtained above
 
-IMAGE_CREATE_SDN_CONNECTOR
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CONNECTOR_SETUP.png>
 
 Click OK
 
-You can view objects imported from EKSdemocluster
+You can view objects imported from EKSdemocluster by right clicking the connector and selecting "_View Connector Objects_"
 
-IMAGE_OBJECTS
-
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CONNECTOR_OBJECTS.png>
 
 ## Section 5: South/North Egress Traffic Inspection Through FortiGate
 
