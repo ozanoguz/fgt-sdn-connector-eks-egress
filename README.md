@@ -304,6 +304,6 @@ As the output showing above, our NGIX deployment is scaled up to 3 pods running.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png width="600"/>
 
-Click "View Matched Addresses" 
+Click "View Matched Addresses", that we can see FortiGate is aware about the change in NGINX deployment.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_THREE_PODS.png width="400"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_THREE_PODS.png width="300"/>
