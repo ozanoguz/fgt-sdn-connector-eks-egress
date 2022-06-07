@@ -37,7 +37,7 @@ Run the script that deploys EKS cluster with required resources (VPC, subnets, I
 
 Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Services_"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_EKS_READY.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_EKS_READY.png width='300'/>
 
 ## Section 2: Deploying FortiGate Single-VM Instance Using AWS Marketplace
 
