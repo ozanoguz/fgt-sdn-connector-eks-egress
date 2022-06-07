@@ -61,7 +61,7 @@ Click "_Continue to Subscribe_" button on top right to continue:
 
 Click "_Continue to Configuration_" button on top right to continue:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_CLICK_CONTINUE.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_CLICK_CONTINUE.png width="800"/>
 
 Choose "_7.0.5_" from "_Software version_" and "_EU (Ireland)_" from "_Region_" dropdown menu as shown below, then click "_Continue to Launch_" button on top right.
 
