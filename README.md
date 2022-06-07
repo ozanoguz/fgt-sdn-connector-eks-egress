@@ -192,7 +192,7 @@ kubectl cluster-info
 
 Resolve master URL above using a terminal/cmd prompt to find out Master API IP address that we will use for FortiGate Kubernetes SDN Connector:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NSLOOKUP.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NSLOOKUP.png width="400"/>
 
 ### Step2: Create service account in EKS Cluster
 
