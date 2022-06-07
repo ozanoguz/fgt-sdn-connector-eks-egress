@@ -221,7 +221,7 @@ kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.i
 ```
 You can copy token to a text editor, because we will use that token to enable FortiGate SDN Connector.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TOKEN.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TOKEN.png width="800"/>
 
 To create SDN connector on FortiGate, navigate the path on management GUI "_Security Fabric > External Connectors > Create New > Kubernetes_"
 
