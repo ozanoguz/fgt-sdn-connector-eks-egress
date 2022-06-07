@@ -225,7 +225,7 @@ You can copy token to a text editor, because we will use that token to enable Fo
 
 To create SDN connector on FortiGate, navigate the path on management GUI "_Security Fabric > External Connectors > Create New > Kubernetes_"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_CONNECTOR.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_CONNECTOR.png width="400"/>
 
 Fill following fields accordingly:
 
@@ -235,13 +235,13 @@ IP: Resolved IP of Master API URL using terminal/cmd_prompt
 Port: 443
 Secret token: Obtained above
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CONNECTOR_SETUP.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CONNECTOR_SETUP.png width="400"/>
 
 Click OK
 
 You can view objects imported from EKSdemocluster by right clicking the connector and selecting "_View Connector Objects_"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_VIEW_OBJECTS.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_VIEW_OBJECTS.png width="400"/>
 
 FortiGate is able to collect labels, services, namespaces and other useful metadata from EKS cluster as shown below:
 
