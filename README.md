@@ -140,7 +140,27 @@ kubectl get pods -A -o wide
 Let's deploy a simple NGINX application that consists of 2 pods using following manifest:
 
 ```
-sdgsgs
+cat <<EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+EOF
 ```
 
 ## Section 4: Connecting FortiGate to EKS
