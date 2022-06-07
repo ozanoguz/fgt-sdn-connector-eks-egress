@@ -49,8 +49,10 @@ Deployment will take around 15 mins. You can check if EKS cluster is successfull
 
 ## Section 2: Deploying FortiGate Single-VM Instance Using AWS Marketplace
 
+FortiGate-VM EC2 instance can be deployed in many ways (CloudFormation templates, using EC2 service etc). For this lab, we will use AWS Marketplace. FortiGate-VM instance will be deployed in subnet named "_FortiGateSubnet_" which is created by bash script above.
+
 ### Step1: Create EC2 Key Pair 
-First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_"
+First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_" or you can click quick access link below.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_KEYPAIR.png>
 
@@ -99,7 +101,7 @@ Click "Lunch" on bottom right
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_LUNCH_FGT.png width="100"/>
 
-When FortiGate deployment is ready, you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password. FortiGate public IP can be found using path "_Services > EC2 > Instances > select FortiGate-VM_"
+When FortiGate EC2 status is "_running_", you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password. FortiGate public IP can be found using path "_Services > EC2 > Instances > select FortiGate-VM_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_PUBLIC_IP.png>
  
@@ -109,7 +111,7 @@ We will use instance-id to login FortiGate GUI once. After first successfull log
 
 ## Section 3: Preparing EKS Cluster for FortiGate Integration
 
-First, we will prepare AWS Cloudshell to access EKS cluster by installing kubectl tool.
+Let's prepare AWS Cloudshell to access EKS cluster by installing kubectl tool and required authentication.
 
 ```
 !
