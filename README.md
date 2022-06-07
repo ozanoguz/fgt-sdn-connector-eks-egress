@@ -1,13 +1,13 @@
 # FortiGate SDN Connector & AWS EKS N/S Hands-on-Lab
 This document describes how to protect managed Kubernetes cluster on AWS platform using FortiGate-VM deployment for North/South traffic. This hands-on-lab consists on following steps:
 
--	[Section 1: Creating AWS EKS cluster using script](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-1-create-aws-eks-managed-kubernetes-cluster)
+-	[Section 1: Creating AWS EKS cluster using bash script](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-1-create-aws-eks-managed-kubernetes-cluster)
 - [Section 2: Deploying FortiGate single-VM instance using AWS Marketplace](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-2-deploy-fortigate-payg-instance)
 -	[Section 3: Preparing EKS Cluster for FortiGate integration](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-3-prepare-eks-cluster-for-fortigate-integration)
 -	[Section 4: Connecting FortiGate to EKS](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-4-connect-fortigate-to-eks-using-sdn-connector)
 -	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-by-fortigate)
 
-## Section 1: Create AWS EKS Managed Kubernetes Cluster
+## Section 1: Creating AWS EKS Cluster Using Bash Script
 
 To create EKS cluster, we will use a bash script on AWS cloudshell. To access AWS cloudshell, after accessing AWS console GUI click the button on top right as shown below:
 
@@ -39,7 +39,7 @@ Deployment will take around 15 mins. You should see following when it successful
 
 IMAGE_EKS_READY
 
-## Section 2: Deploy FortiGate PAYG Instance
+## Section 2: Deploying FortiGate Single-VM Instance Using AWS Marketplace
 
 ### Step1: Create EC2 Key Pair 
 First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_"
@@ -99,7 +99,7 @@ We will use instance-id to login FortiGate GUI once. After first successfull log
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png width="500"/>
 
-## Section 3: Prepare EKS Cluster for FortiGate Integration
+## Section 3: Preparing EKS Cluster for FortiGate Integration
 
 First, we will prepare AWS Cloudshell to access EKS cluster by installing kubectl tool.
 
@@ -120,7 +120,7 @@ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/
 aws eks update-kubeconfig --name EKSdemocluster
 ```
 
-## Section 4: Connect FortiGate to EKS using SDN Connector
+## Section 4: Connecting FortiGate to EKS
 
 First, we will find out Kubernetes Master API URL created by EKS using cloudshell:
 
@@ -175,7 +175,7 @@ You can view objects imported from EKSdemocluster
 IMAGE_OBJECTS
 
 
-## Section 5: South/North Egress Traffic Inspection by FortiGate
+## Section 5: South/North Egress Traffic Inspection Through FortiGate
 
 Let's create a dynamic address object using SDN connector capability. To do that, navigate the path using FortiGate management GUI "". 
 
