@@ -72,25 +72,32 @@ Select following from "_Configuration Details_" screen as below. Note that VPC-I
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_OPTIONS.png>
 
 To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID value of "EKSdemo_"
+
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_VPC_ID.png>
 
 To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet_"
+
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SUBNET_ID.png>
 
 After choosing "_Create New Based on Seller Settings_", give a name to security group:
+
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SG.png>
 
 Select the Key Pair we created above:
+
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SELECT_KEYPAIR.png>
 
 Click "Lunch" on bottom right
+
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_LUNCH_FGT.png>
 
 When FortiGate deployment is ready, you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password. FortiGate public IP can be found using path "_Services > EC2 > Instances > select FortiGate-VM_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_PUBLIC_IP.png>
  
-IMAGE_FGT_LOGIN_GUI
+We will use instance-id to login FortiGate GUI once. After first successfull login, FortiGate will ask to change admin password.
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_FIRST_LOGIN.png>
 
 ## Section3: Prepare EKS Cluster for FortiGate Integration
 
