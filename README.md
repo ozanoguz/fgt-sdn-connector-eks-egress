@@ -253,7 +253,13 @@ Let's create a dynamic address object using SDN connector capability. We can use
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_DYNAMIC_ADDRESS.png width="400"/>
 
-Next, create an egress firewall policy using following parameters. This will ensure outgoing traffic is inspected and protected by FortiGate.
+Next, create an egress firewall policy using following parameters. This will ensure outgoing traffic is inspected and protected by FortiGate. Navigation path is "_Policy & Objects > Firewall Policy > Create New_"
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FIREWALL_POLICY.png width="400"/>
+
+Make sure you enabled logging for all sessions:
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FWPOLICY_LOGGING.png>
 
 For creating egress traffic, We need to access bash of one of the deployed container pods using following command:
 
