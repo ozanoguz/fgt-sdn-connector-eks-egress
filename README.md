@@ -258,10 +258,12 @@ FortiGate is able to collect labels, services, namespaces and other useful metad
 
 ## Section 5: South/North Egress Traffic Inspection Through FortiGate
 
+### Step5.1 
 Let's create a dynamic address object using SDN connector capability. We can use label metadata of deployed for simple NGINX app. To create a dynamic object, navigate the path using FortiGate management GUI "_Policy & Objects > Addresses > Create New > Address_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_DYNAMIC_ADDRESS.png width="400"/>
 
+### Step5.2
 Next, create an egress firewall policy using following parameters. This will ensure outgoing traffic is inspected and protected by FortiGate. Navigation path is "_Policy & Objects > Firewall Policy > Create New_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FIREWALL_POLICY.png width="400"/>
@@ -270,10 +272,12 @@ Make sure you enabled logging for all sessions:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FWPOLICY_LOGGING.png width="400"/>
 
+### Step5.3
 Before proceeding, add another firewall policy to allow worker nodes' Internet connectivity as shown below:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_ALLOW_ALL.png width="400"/>
 
+### Step5.4
 For creating egress traffic, We need to access bash of one of the deployed container pods using following command. You can obtain the name of the NGINX pod using "kubectl get pods -n default -o wide" commmand. Once we are inside the pod, curl should be install to test egress traffic.
 
 ```
@@ -291,6 +295,7 @@ curl www.fortinet.com
 ```
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CURL_FROM_POD.png>
 
+### Step5.5
 Let's check FortiGate traffic log using navigation path "_Log and Report > Forward Traffic_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TRAFFIC_LOG.png width="800"/>
@@ -299,14 +304,20 @@ As it is shown above, FortiGate is able to log by NGINX pod IP and egress traffi
 
 ## Section 6: (Optional) Automation by scaling-up NGINX deployment
 
-By nature of Kubernetes world, applications can horizontally scale up/down by many reasons. Let's scale up our NGINX app using following command:
+By nature of Kubernetes world, applications can horizontally scale up/down by many reasons. 
+
+### Step6.1
+Let's scale up our NGINX app using following command:
 
 ```
 kubectl scale --replicas=3 deployment nginx-deployment
 ```
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SCALED_UP.png>
 
-As the output showing above, our NGIX deployment is scaled up to 3 pods running. Thanks to FortiGate SDN Connector, this chance will be automatically reflected in dynamic object and firewall policy. To see this change navigate through FortiGate management GUI "_Policy & Objects > Firewall Policy_" and hover your mouse on dynamic object we created before.
+As the output showing above, our NGIX deployment is scaled up to 3 pods running. 
+
+### Step6.2
+Thanks to FortiGate SDN Connector, this chance will be automatically reflected in dynamic object and firewall policy. To see this change navigate through FortiGate management GUI "_Policy & Objects > Firewall Policy_" and hover your mouse on dynamic object we created before.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png width="600"/>
 
