@@ -57,7 +57,7 @@ We will use AWS Marketplace to deploy single FortiGate-VM instance into cloud ac
 
 Click "_Continue to Subscribe_" button on top right to continue:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_MARKETPLACE.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_MARKETPLACE.png width="800"/>
 
 Click "_Continue to Configuration_" button on top right to continue:
 
