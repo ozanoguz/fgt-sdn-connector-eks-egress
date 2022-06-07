@@ -52,16 +52,16 @@ Deployment will take around 15 mins. You can check if EKS cluster is successfull
 
 ## Section 2: Deploying FortiGate Single-VM Instance Using AWS Marketplace
 
-FortiGate-VM EC2 instance can be deployed in many ways (CloudFormation templates, using EC2 service etc). For this lab, we will use AWS Marketplace. FortiGate-VM instance will be deployed in subnet named "_FortiGateSubnet_" which is created by bash script above.
+In this section, we will deploy FortiGate-VM using PAYG licensing model. FortiGate-VM EC2 instance can be deployed in many ways (CloudFormation templates, using EC2 service etc). For this lab, we will use AWS Marketplace. FortiGate-VM instance will be deployed in subnet named "_FortiGateSubnet_" which is created by bash script above.
 
-### Step1: Create EC2 Key Pair 
+### Step 2.1: Create EC2 Key Pair 
 First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_" or you can click quick access link below.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_KEYPAIR.png>
 
 [Quick Access to Key Pairs](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#KeyPairs)
 
-### Step2: Deploy FortiGate PAYG Instance
+### Step 2.2: Deploy FortiGate PAYG Instance
 We will use AWS Marketplace to deploy single FortiGate-VM instance into cloud account. While we are logged in AWS console, click following link to start FortiGate deployment.
 
 [Deploy FortiGate PAYG Instance](https://aws.amazon.com/marketplace/pp/prodview-wory773oau6wq?sr=0-1&ref_=beagle&applicationId=AWSMPContessa)
@@ -120,6 +120,10 @@ Check box should NOT be selected as shown below:
 
 ## Section 3: Preparing EKS Cluster & Deploy Simple Application
 
+In this section, we will prepare AWS Cloudshell for our usage and deploy a simple NGINX application for tests. Last step will be disabling NAT feature on AWS CNI. 
+
+### Step 3.1: Prepare AWS Cloudshell
+
 Let's prepare AWS Cloudshell to access EKS cluster by installing kubectl tool and required authentication.
 
 ```
@@ -145,6 +149,8 @@ kubectl get nodes -o wide
 kubectl get pods -A -o wide
 ```
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NODEPODSTATUS.png>
+
+### Step 3.2: Deploy simple NGINX application
 
 Using AWS cloudshell, deploy a simple NGINX application that consists of 2 pods using following manifest:
 
@@ -177,6 +183,8 @@ You can check the deployment status using following command:
 kubectl get pods -n default -o wide
 ```
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SIMPLE_APP.png>
+
+### Step 3.3: Disable NAT on AWS CNI
 
 Since we are using AWS CNI, egress traffic directed to Internet will be NAT'ted by CNI. That way, for outgoing traffic initiated from pods, we will see only node IP of deployed pods in FortiGate traffic logs. We can disable NAT feature of AWS CNI using following command in cloudshell
 
