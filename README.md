@@ -29,7 +29,15 @@ cd EKS_demo
 chmod +x deploy.sh
 chmod +x cleanup.sh
 ```
-Run the script that deploys EKS cluster with required resources (VPC, subnets, IGW, SG etc.)
+Run the script using following command. Bash script will create required resources below:
+- VPC
+- 3x subnets (2x for EKS, 1x for FortiGate)
+- Internet Gateway
+- Route table
+- Security group
+- IAM role & policy
+- EKS Cluster
+- EKS Nodegroup
 
 ```
 \.deploy.sh
