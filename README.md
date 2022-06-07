@@ -245,7 +245,7 @@ You can view objects imported from EKSdemocluster by right clicking the connecto
 
 FortiGate is able to collect labels, services, namespaces and other useful metadata from EKS cluster as shown below:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CONNECTOR_OBJECTS.png>
+
 
 ## Section 5: South/North Egress Traffic Inspection Through FortiGate
 
