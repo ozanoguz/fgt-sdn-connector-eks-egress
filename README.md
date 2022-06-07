@@ -1,5 +1,5 @@
 # FortiGate SDN Connector & AWS EKS N/S Hands-on-Lab
-This document describes how to protect managed Kubernetes cluster on AWS platform using FortiGate-VM deployment for North/South traffic. This hands-on-lab consists on following steps:
+This document describes how to protect managed Kubernetes cluster on AWS platform using FortiGate-VM deployment for North/South traffic. Same use case applies on other managed Kubernetes cluster deployments, such as AKS on Azure or GKE on GCP. This hands-on-lab consists on following steps:
 
 -	[Section 1: Creating AWS EKS cluster using bash script](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-1-create-aws-eks-managed-kubernetes-cluster)
 - [Section 2: Deploying FortiGate single-VM instance using AWS Marketplace](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-2-deploy-fortigate-payg-instance)
@@ -9,9 +9,9 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 
 ## Section 1: Creating AWS EKS Cluster Using Bash Script
 
-To create EKS cluster, we will use a bash script on AWS cloudshell. To access AWS cloudshell, after accessing AWS console GUI click the button on top right as shown below:
+To create EKS cluster, we will use a bash script on AWS cloudshell. To access AWS cloudshell, after logging into AWS console GUI click the button on top right as shown below. Make sure "Ireland" region is selected. 
 
-IMAGE_ACCESS_CLOUDSHELL
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_CLOUDSHELL_ACCESS.png>
 
 When you access Cloudshell CLI screen, clone following GitHub repo to your shell:
 
@@ -35,9 +35,9 @@ Run the script that deploys EKS cluster with required resources (VPC, subnets, I
 \.deploy.sh
 ```
 
-Deployment will take around 15 mins. You should see following when it successfully finishes:
+Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Services_"
 
-IMAGE_EKS_READY
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_EKS_READY.png>
 
 ## Section 2: Deploying FortiGate Single-VM Instance Using AWS Marketplace
 
