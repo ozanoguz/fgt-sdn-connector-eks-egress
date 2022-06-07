@@ -280,7 +280,7 @@ curl www.fortinet.com
 
 Let's check FortiGate traffic log using navigation path "_Log and Report > Forward Traffic_"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TRAFFIC_LOG.png width="400"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TRAFFIC_LOG.png width="600"/>
 
 As it is shown above, FortiGate is able to log by NGINX pod IP and egress traffic is inspected using specific firewall policy.
 
