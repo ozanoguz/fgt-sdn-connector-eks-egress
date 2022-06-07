@@ -6,7 +6,7 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 -	[Section 3: Preparing EKS Cluster & Deploy Simple Application](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-3-prepare-eks-cluster-for-fortigate-integration)
 -	[Section 4: Connecting FortiGate to EKS](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-4-connect-fortigate-to-eks-using-sdn-connector)
 -	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-by-fortigate)
--	Section 6: (Optional) Automation by scaling-up NGINX deployment
+-	[Section 6: (Optional) Automation by scaling-up NGINX deployment](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png)
 
 ## Section 1: Creating AWS EKS Cluster Using Bash Script
 
@@ -302,4 +302,4 @@ kubectl scale --replicas=3 deployment nginx-deployment
 
 As the output showing above, our NGIX deployment is scaled up to 3 pods running. Thanks to FortiGate SDN Connector, this chance will be automatically reflected in dynamic object and firewall policy. To see this change navigate through FortiGate management GUI "_Policy & Objects > Firewall Policy_" and hover your mouse on dynamic object we created before.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SCALED.png width="500"/>
