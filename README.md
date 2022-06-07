@@ -137,7 +137,7 @@ kubectl get pods -A -o wide
 ```
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NODEPODSTATUS.png>
 
-Let's deploy a simple NGINX application that consists of 2 pods using following manifest:
+Using AWS cloudshell, deploy a simple NGINX application that consists of 2 pods using following manifest:
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -162,6 +162,12 @@ spec:
         - containerPort: 80
 EOF
 ```
+You can check the deployment status using following command:
+
+```
+kubectl get pods -n default -o wide
+```
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SIMPLE_APP.png>
 
 ## Section 4: Connecting FortiGate to EKS
 
