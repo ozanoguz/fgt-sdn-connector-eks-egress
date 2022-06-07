@@ -196,7 +196,7 @@ You should see following outputon cloudshell:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_DISABLE_SNAT.png>
 
-### Step 3.4: Manipulate Routing within VPC
+### Step 3.4: Manipulate Routing within EKS VPC
 
 When we create subnets within VPC, all use main routing table. For re-directing outgoing traffic to FortiGate interface, create new route-table using AWS console ("_Services > VPC > Route Tables > Create route table_")
 
