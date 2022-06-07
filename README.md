@@ -225,7 +225,7 @@ You can copy token to a text editor, because we will use that token to enable Fo
 
 To create SDN connector on FortiGate, navigate the path on management GUI "_Security Fabric > External Connectors > Create New > Kubernetes_"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_CONNECTOR.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_NEW_CONNECTOR.png width="400"/>
 
 Fill following fields accordingly:
 
