@@ -306,4 +306,4 @@ As the output showing above, our NGIX deployment is scaled up to 3 pods running.
 
 Click "View Matched Addresses" 
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_THREE_PODS.png width="600"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_THREE_PODS.png width="400"/>
