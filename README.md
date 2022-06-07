@@ -43,7 +43,7 @@ Run the script using following command. Bash script will create required resourc
 \.deploy.sh
 ```
 
-Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Services_"
+Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Service_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_EKS_READY.png width='400'/>
 
