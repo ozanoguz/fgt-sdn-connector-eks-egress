@@ -8,6 +8,10 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 -	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-through-fortigate)
 -	[Section 6: (Optional) Automation by scaling-up NGINX deployment](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-6-optional-automation-by-scaling-up-nginx-deployment)
 
+Here is the topology diagram showing all components that will be deployed:
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TOPOLOGY_DIAGRAM.png>
+
 ## Section 1: Creating AWS EKS Cluster Using Bash Script
 
 To create EKS cluster, we will use a bash script on AWS cloudshell. To access AWS cloudshell, after logging into AWS console GUI click the button on top right as shown below. Make sure "Ireland" region is selected. 
