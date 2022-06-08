@@ -10,7 +10,7 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 
 Here is the topology diagram showing all components that will be deployed:
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TOPOLOGY_DIAGRAM.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TOPOLOGY_DIAGRAM.png width="500"/>
 
 ## Section 1: Creating AWS EKS Cluster Using Bash Script
 
