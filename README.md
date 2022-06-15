@@ -366,4 +366,15 @@ Click "View Matched Addresses", that we can see FortiGate is aware about the cha
 
 Using EC2 service (_Services > EC2 > Instances_), select FortiGate-VM and terminate
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TERMINATE_FGT.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TERMINATE_FGT.png width="200"/>
+
+### Step 7.2: Terminate AWS resources
+
+Use following script to remove all resources we created for the lab:
+
+```
+cd $user
+cd aws_tools
+cd EKS_demo
+./cleanup.sh
+```
