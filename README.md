@@ -109,7 +109,7 @@ To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SUBNET_ID.png width="300"/>
 
-After choosing "_Create New Based on Seller Settings_", give a name to security group:
+After choosing "_Create New Based on Seller Settings_", give a name to security group **ending up with student-id**:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SG.png width="600"/>
 
