@@ -30,12 +30,6 @@ git clone https://github.com/ozanoguz/aws_tools.git
 Access related folder and allow bash scripts that can be executed. Later, we will install "kubectl" to Cloudshell.
 
 ```
-# locate to home folder for lab user
-cd $user
-cd aws_tools
-cd EKS_demo
-chmod +x deploy.sh
-chmod +x cleanup.sh
 !
 cd $user
 # download kubectl to cloudshell
@@ -46,6 +40,12 @@ chmod +x ./kubectl
 !
 # Move the kubectl to different folder and add it to the path
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+# locate to home folder for lab user
+cd $user
+cd aws_tools
+cd EKS_demo
+chmod +x deploy.sh
+chmod +x cleanup.sh
 ```
 Bash script will create required resources per setudent below:
 - VPC
