@@ -27,16 +27,16 @@ cd $user
 git clone https://github.com/ozanoguz/aws_tools.git
 ```
 
-Access related folder and allow bash scripts that can be executed.
+Access related folder and allow bash scripts that can be executed. Later, we will install "kubectl" to Cloudshell.
 
 ```
+# locate to home folder for lab user
 cd $user
 cd aws_tools
 cd EKS_demo
 chmod +x deploy.sh
 chmod +x cleanup.sh
 !
-# locate to home folder
 cd $user
 # download kubectl to cloudshell
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
@@ -47,7 +47,7 @@ chmod +x ./kubectl
 # Move the kubectl to different folder and add it to the path
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
 ```
-Bash script will create required resources below:
+Bash script will create required resources per setudent below:
 - VPC
 - 3x subnets (2x for EKS, 1x for FortiGate)
 - Internet Gateway
@@ -57,10 +57,10 @@ Bash script will create required resources below:
 - EKS Cluster
 - EKS Nodegroup
 
-Run the script using following command. 
+Run the script using following command. **Each student will replace his/her student-id below.**
 
 ```
-./deploy.sh
+./deploy.sh studentxx
 ```
 
 Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Service_"
@@ -69,10 +69,10 @@ Deployment will take around 15 mins. You can check if EKS cluster is successfull
 
 ## Section 2: Deploying FortiGate Single-VM Instance Using AWS Marketplace
 
-In this section, we will deploy FortiGate-VM using PAYG licensing model. FortiGate-VM EC2 instance can be deployed in many ways (CloudFormation templates, using EC2 service etc). For this lab, we will use AWS Marketplace. FortiGate-VM instance will be deployed in subnet named "_FortiGateSubnet_" which is created by bash script above.
+In this section, we will deploy FortiGate-VM using PAYG licensing model. FortiGate-VM EC2 instance can be deployed in many ways (CloudFormation templates, using EC2 service etc). For this lab, we will use AWS Marketplace. FortiGate-VM instance will be deployed in subnet named "_FortiGateSubnet Studentxx_" which is created by bash script above.
 
 ### Step 2.1: Create EC2 Key Pair 
-First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_" or you can click quick access link below.
+First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_" or you can click quick access link below. If you have existing key pair, you can use it during provision process.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_KEYPAIR.png>
 
@@ -97,15 +97,15 @@ Choose "_7.0.5_" from "_Software version_" and "_EU (Ireland)_" from "_Region_" 
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SELECT_VERSION.png width="400"/>
 
-Select following from "_Configuration Details_" screen as below. Note that VPC-ID/subnet-ID will be the ones created by EKS script
+Select following from "_Configuration Details_" screen as below. Note that VPC-ID/subnet-ID will be the ones created by EKS script.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_OPTIONS.png width="600"/>
 
-To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID value of "EKSdemo_"
+To view VPC-ID: "_AWS Console > Services > VPC > Your VPCs > copy the VPC-ID value of "EKSdemo studentxx_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_VPC_ID.png width="400"/>
 
-To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet_"
+To view Subnet-ID: "_AWS Console > Services > VPC > Subnets > copy the subnet-ID value of "FortiGateSubnet studentxx_"
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SUBNET_ID.png width="300"/>
 
@@ -113,7 +113,7 @@ After choosing "_Create New Based on Seller Settings_", give a name to security 
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_SG.png width="600"/>
 
-Select the Key Pair we created above:
+Select the Key Pair we created above (or you can select the one created before):
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SELECT_KEYPAIR.png width="600"/>
 
@@ -141,21 +141,9 @@ In this section, we will prepare AWS Cloudshell for our usage and deploy a simpl
 
 ### Step 3.1: Prepare AWS Cloudshell
 
-Let's prepare AWS Cloudshell to access EKS cluster by installing kubectl tool and required authentication.
+Let's prepare AWS Cloudshell to authenticate EKS cluster we created before.
 
 ```
-!
-# locate to home folder
-cd $user
-# download kubectl to cloudshell
-curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
-!
-# Apply execute permission
-chmod +x ./kubectl
-!
-# Move the kubectl to different folder and add it to the path
-mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
-!
 # Update kubeconfig file to access EKS cluster
 aws eks update-kubeconfig --name EKSdemocluster
 ```
@@ -387,5 +375,5 @@ Use following script to remove all resources we created for the lab:
 cd $user
 cd aws_tools
 cd EKS_demo
-./cleanup.sh
+./cleanup.sh studentxx
 ```
