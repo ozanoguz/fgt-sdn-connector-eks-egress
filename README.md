@@ -35,6 +35,17 @@ cd aws_tools
 cd EKS_demo
 chmod +x deploy.sh
 chmod +x cleanup.sh
+!
+# locate to home folder
+cd $user
+# download kubectl to cloudshell
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
+!
+# Apply execute permission
+chmod +x ./kubectl
+!
+# Move the kubectl to different folder and add it to the path
+mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
 ```
 Bash script will create required resources below:
 - VPC
