@@ -7,6 +7,8 @@ This document describes how to protect managed Kubernetes cluster on AWS platfor
 -	[Section 4: Connecting FortiGate to EKS](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-4-connecting-fortigate-to-eks)
 -	[Section 5: South/North egress traffic inspection through FortiGate](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-5-southnorth-egress-traffic-inspection-through-fortigate)
 -	[Section 6: (Optional) Automation by scaling-up NGINX deployment](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-6-optional-automation-by-scaling-up-nginx-deployment)
+-	[Section 7: Destroy the lab](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-6-optional-automation-by-scaling-up-nginx-deployment)
+
 
 Here is the topology diagram showing all components that will be deployed:
 
@@ -357,3 +359,11 @@ Thanks to FortiGate SDN Connector, this chance will be automatically reflected i
 Click "View Matched Addresses", that we can see FortiGate is aware about the change in NGINX deployment.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_THREE_PODS.png width="300"/>
+
+## Section 7: Destroy the lab
+
+### Step 7.1: Terminate FortiGate-VM EC2 Instance
+
+Using EC2 service (_Services > EC2 > Instances_), select FortiGate-VM and terminate
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_TERMINATE_FGT.png>
