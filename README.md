@@ -47,7 +47,7 @@ Bash script will create required resources below:
 Run the script using following command. 
 
 ```
-/.deploy.sh
+./deploy.sh
 ```
 
 Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Service_"
