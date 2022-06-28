@@ -72,7 +72,7 @@ Bash script will create required resources per setudent below:
 Run the script using following command. **Each student will replace his/her student-id below.**
 
 ```
-./deploy.sh studentxx
+./deploy.sh k8s_studentxx
 ```
 
 Deployment will take around 15 mins. You can check if EKS cluster is successfully deployed on AWS Console using path "_Services > Elastic Kubernetes Service_"
