@@ -143,6 +143,10 @@ We will use instance-id to login FortiGate GUI once. After first successfull log
 
 Before proceeding below, do not forget to disable source & destination check on FortiGate-VM network interface. Navigation path on AWS console is "_Services > EC2 > select FortiGate-EC2 > Networking > Network Interfaces > select NIC > Actions > Change source/destination check_"
 
+ENI configuration can be modified from "Actions" drop-down menu:
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ENI_CONFIG.png width="200"/>
+
 Check box should NOT be selected as shown below:
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SRCDST_DISABLE.png>
