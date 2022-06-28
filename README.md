@@ -161,7 +161,7 @@ Let's prepare AWS Cloudshell to authenticate EKS cluster we created before.
 
 ```
 # Update kubeconfig file to access EKS cluster
-aws eks update-kubeconfig --name EKSdemocluster-studentxx
+aws eks update-kubeconfig --name EKSdemocluster-k8s_studentxx
 ```
 We can check node and pod status of EKS cluster using following commands.
 
