@@ -133,9 +133,9 @@ Click "Lunch" on bottom right
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_LUNCH_FGT.png width="100"/>
 
-When FortiGate EC2 status is "_running_", you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password. FortiGate public IP can be found using path "_Services > EC2 > Instances > select FortiGate-VM_"
+When FortiGate EC2 status is "_running_", you can login FortiGate GUI with assigned public-IP using instance-id as admin password at once. Later, GUI will ask to change login password. We can use filter option to find out FortiGate public IP by using our VPC ID "_Services > EC2 > Instances > Filter VPC ID equals VPC_ID_k8s_studentxx"
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FGT_PUBLIC_IP.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_FILTERVPC.png width="500"/>
  
 We will use instance-id to login FortiGate GUI once. After first successfull login, FortiGate will ask to change admin password.
 
