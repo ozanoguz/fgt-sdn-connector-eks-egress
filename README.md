@@ -301,7 +301,7 @@ FortiGate is able to collect labels, services, namespaces and other useful metad
 
 ## Section 5: South/North Egress Traffic Inspection Through FortiGate
 
-### Step 5.1: Configure SDN Connector
+### Step 5.1: Create a Dynamic Object
 
 Let's create a dynamic address object using SDN connector capability. We can use label metadata of deployed for simple NGINX app. To create a dynamic object, navigate the path using FortiGate management GUI "_Policy & Objects > Addresses > Create New > Address_"
 
