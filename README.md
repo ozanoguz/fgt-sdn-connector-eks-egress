@@ -391,5 +391,5 @@ Use following script to remove all resources we created for the lab:
 cd $user
 cd aws_tools
 cd EKS_demo
-./cleanup.sh studentxx
+./cleanup.sh k8s_studentxx
 ```
