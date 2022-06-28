@@ -16,9 +16,14 @@ Here is the topology diagram showing all components that will be deployed:
 
 ## Section 1: Creating AWS EKS Cluster Using Bash Script
 
-First, let's login AWS console using link below:
+### Step 1.1: Access AWS Console
+First, let's login AWS console using link below. You can use k8s_studentxx as username, password will be provided during session. 
 
 [Access AWS Management Console](https://174296440058.signin.aws.amazon.com/console)
+
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_AWS_LOGIN.png width="200"/>
+
+### Step 1.2: Create EKS Cluster
 
 To create EKS cluster, we will use a bash script on AWS cloudshell. To access AWS cloudshell, after logging into AWS console GUI click the button on top right as shown below. **Make sure "Ireland" region is selected.** 
 
