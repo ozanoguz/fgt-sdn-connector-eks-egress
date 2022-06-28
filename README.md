@@ -219,9 +219,9 @@ You should see following outputon cloudshell:
 
 ### Step 3.4: Manipulate Routing within EKS VPC
 
-When we create subnets within VPC, all use main routing table. For re-directing outgoing traffic to FortiGate interface, create new route-table using AWS console ("_Services > VPC > Route Tables > Create route table_")
+When we create subnets within VPC, all use main routing table. For redirecting outgoing traffic to FortiGate interface, create new route-table using AWS console ("_Services > VPC > Route Tables > Create route table_")
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ROUTETABLE.png width="500"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ROUTETABLENEW.png width="500"/>
 
 Add a default route by clicking "Edit routes" with a target pointing FortiGate-VM NIC-ID. FortiGate-VM's NIC ID can be found under networking settings of FortiGate EC2.
 
