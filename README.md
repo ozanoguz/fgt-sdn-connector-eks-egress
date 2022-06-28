@@ -229,7 +229,7 @@ Add a default route by clicking "Edit routes" with a target pointing FortiGate-V
 
 Then, associate this route table to EKS subnets by choosing "_Subnet Associations > Edit Subnet Associations_":
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_RT_ASSOCIATE.png> 
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_ASSOCIATE_RT.png> 
 
 ## Section 4: Connecting FortiGate to EKS
 
