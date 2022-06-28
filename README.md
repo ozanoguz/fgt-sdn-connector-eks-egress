@@ -1,4 +1,7 @@
 # FortiGate SDN Connector & AWS EKS N/S Hands-on-Lab
+
+**!!! DISCLAIMER: THIS REPO IS PREPARED FOR ONLY FORTINET XPERTS SUMMIT 2022 SESSION !!!**
+
 This document describes how to protect managed Kubernetes cluster on AWS platform using FortiGate-VM deployment for North/South traffic. Same use case applies on other managed Kubernetes cluster deployments, such as AKS on Azure or GKE on GCP. This hands-on-lab consists on following steps:
 
 -	[Section 1: Creating AWS EKS cluster using bash script](https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/README.md#section-1-creating-aws-eks-cluster-using-bash-script)
