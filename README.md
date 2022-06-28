@@ -127,7 +127,7 @@ After choosing "_Create New Based on Seller Settings_", give a name to security 
 
 Select the Key Pair we created above (or you can select the one created before):
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_SELECT_KEYPAIR.png width="600"/>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_KEY_PAIR.png width="600"/>
 
 Click "Lunch" on bottom right
 
