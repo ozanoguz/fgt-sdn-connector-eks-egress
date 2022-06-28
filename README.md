@@ -83,7 +83,7 @@ Deployment will take around 15 mins. You can check if EKS cluster is successfull
 
 In this section, we will deploy FortiGate-VM using PAYG licensing model. FortiGate-VM EC2 instance can be deployed in many ways (CloudFormation templates, using EC2 service etc). For this lab, we will use AWS Marketplace. FortiGate-VM instance will be deployed in subnet named "_FortiGateSubnet Studentxx_" which is created by bash script above.
 
-### Step 2.1: Create EC2 Key Pair 
+### Step 2.1: Create EC2 Key Pair (optional)
 First, we will create a key pair using EC2 service. Navigation path is "_AWS Console > Services > EC2 > Key Pairs > Create Key Pair_" or you can click quick access link below. If you have existing key pair, you can use it during provision process.
 
 <img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_KEYPAIR.png>
