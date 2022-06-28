@@ -37,7 +37,7 @@ git clone https://github.com/ozanoguz/aws_tools.git
 ```
 AWS console will show a pop-up as below. Uncheck the box next to "Ask before pasting multiline code", since we will do similar in next steps.
 
-<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_UNCHECK.png>
+<img src=https://github.com/ozanoguz/fgt-sdn-connector-eks-egress/blob/main/images/IMAGE_UNCHECK.png width="300"/>
 
 Access related folder and allow bash scripts that can be executed. Later, we will install "kubectl" to Cloudshell.
 
